@@ -1,24 +1,29 @@
 const listaPokemones = document.querySelector('#lista-pokemones')
 
-fetch('https://pokeapi.co/api/v2/pokemon?limit=102&offset=0')
-    .then(respuesta => respuesta.json())
-    .then(data => {
-        (data.results).forEach((pokemones,index)=>{
-            fetch(pokemones.url)
-                .then(respuesta=>respuesta.json())
-                .then(data=>{
-                    console.log(data)
-                    const $articulo = document.createElement('article');
+function crearPokemones(data){
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=18&offset=0')
+        .then(respuesta => respuesta.json())
+        .then(data => {
+            console.log(data.sprites);
+            (data.results).forEach((pokemon)=>{
+                console.log(pokemon.url)
+                fetch(pokemon.url)
+                    .then(respuesta=>respuesta.json())
+                    .then(data=>{
+                        const $articulo = document.createElement('article');
 
-                    const $imagen = document.createElement('img');
-                    $imagen.src = data.sprites.back_default
-                    $($articulo).append($imagen)
+                        const $imagen = document.createElement('img');
+                        $imagen.src = data.sprites.front_default
+                        $($articulo).append($imagen)
 
-                    const $elemento = document.createElement('li');
-                    $elemento.textContent = `${pokemones.name}`
-                    $($articulo).append($elemento);
+                        const $nombre = document.createElement('h2');
+                        $nombre.textContent = `${pokemon.name}`
+                        $($articulo).append($nombre);
 
-                    $(listaPokemones).append($articulo)
-                })
+                        $(listaPokemones).append($articulo)
+                    })
+            })
         })
-    })
+}
+
+crearPokemones();
