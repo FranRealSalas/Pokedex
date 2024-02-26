@@ -3,6 +3,7 @@ body,html{
     width: auto;
     background-color: #fd5252;
     overflow: hidden;
+    font-family: "Sigmar One", sans-serif;
 }
 
 header{
@@ -50,7 +51,7 @@ article{
     text-align: center;
     flex-direction: column;
     justify-content: center;
-    padding: 2em;
+    padding: 3.2em;
 }
 
 article:hover{
@@ -86,4 +87,64 @@ footer{
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+#botones-paginas > input{
+    width: 30px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+}
+
+#botones-paginas > input::-webkit-outer-spin-button,
+#botones-paginas > input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+#modal{
+    position: absolute;
+    padding: 1em;
+    width: 30em;
+    height: 30em;
+    border: 1px solid black;
+    border-radius: 3%;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+
+#imagen-modal{
+    border-radius: 4%;
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.7);
+}
+
+#cerrar-modal{
+    position: absolute;
+    top: .8em;
+    right: 1em;
+    width: 2em;
+}
+
+.oculto{
+    display: none;
+}
+
+.filtrado {
+    filter:blur(3px);
+}
+
+#contenedor-modal{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
 }

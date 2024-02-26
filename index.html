@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
     <link href="./img/pokeball.png" rel="icon" type="image/x-icon" />
-    <link rel="stylesheet" href="src/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <header>
@@ -15,22 +18,33 @@
     
     <main>
         <div class="contenedor-lista-pokemones">
-            <div id="lista-pokemones">    
+            <div id="lista-pokemones">
             </div>  
         </div>
+        <div id="contenedor-modal" class="oculto">
+            <div id="modal">
+                <img src="./img/cerrar.png" id="cerrar-modal">
+                <br>
+                <img id="imagen-modal">
+                <br>
+                <h2 id="nombre-modal"></h2>
+                <span id="habilidades-modal">
+            </div>
+        </div>
     </main>
-
+    
     <footer>
         <hr>
         <div id="botones-paginas">
             <button id="boton-anterior">&laquo;</button>
-            <span id="numero-pagina-actual"></span>
+            <input id="numero-pagina-actual" type="number"></input>
             <button id="boton-siguiente">&raquo;</button>
         </div>
     </footer>
 
+
         
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="src/index.js"></script>
+    <script src="src/index.js" type="module"></script>
 </body> 
 </html>
