@@ -13,14 +13,16 @@
 <body>
     <header>
         <img src="./img/pokemonlogo.png">
+        <input id="barra-busqueda" placeholder="Buscar pokemon" ></input>
         <hr>
     </header>
     
     <main>
         <div class="contenedor-lista-pokemones">
-            <div id="lista-pokemones">
+            <div class="lista-pokemones">
             </div>  
         </div>
+
         <div id="contenedor-modal" class="oculto">
             <div id="modal">
                 <img src="./img/cerrar.png" id="cerrar-modal">
@@ -41,8 +43,6 @@
             <button id="boton-siguiente">&raquo;</button>
         </div>
     </footer>
-
-
         
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="src/index.js" type="module"></script>
