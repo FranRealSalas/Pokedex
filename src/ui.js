@@ -48,13 +48,20 @@ cerrarModal.onclick = ()=>{
 export function usarModal(elementoClick,pokemonActual){
     elementoClick.onclick=()=>{
         const imagenModal = document.querySelector('#imagen-modal');
+        const nombreModal = document.querySelector('#nombre-modal');
+        const tipoPokemonModal = document.querySelector('#tipo-pokemon-modal');
         imagenModal.src = "";
+        nombreModal.textContent = "";
+        tipoPokemonModal.textContent = "";
 
-        const urlCard = `https://api.pokemontcg.io/v2/cards?q=name:${pokemonActual.name}`
+        const urlCard = `https://api.pokemontcg.io/v2/cards?q=name:${pokemonActual.name}`;
         fetch(urlCard)
             .then(respuesta=>respuesta.json())
             .then(data=>{
-                imagenModal.src = data.data[1].images.small
+                console.log(data.data[1]);
+                imagenModal.src = data.data[1].images.small;
+                nombreModal.textContent = data.data[1].name;
+                tipoPokemonModal.textContent = `type = ${data.data[1].types}`;
             })
 
         document.querySelector("#contenedor-modal").classList.remove("oculto");
