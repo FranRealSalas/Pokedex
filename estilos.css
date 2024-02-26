@@ -227,7 +227,7 @@ footer{
     }
 }
 
-@media (max-width:120px){
+@media (max-width:350px){
     header>input{
         display: none;
     }
