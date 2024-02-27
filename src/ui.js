@@ -58,14 +58,20 @@ export function usarModal(elementoClick,pokemonActual){
         fetch(urlCard)
             .then(respuesta=>respuesta.json())
             .then(data=>{
-                console.log(data.data[1]);
                 imagenModal.src = data.data[1].images.small;
                 nombreModal.textContent = data.data[1].name;
-                tipoPokemonModal.textContent = `type = ${data.data[1].types}`;
+                tipoPokemonModal.textContent = `Tipo: ${data.data[1].types}`;
             })
 
         document.querySelector("#contenedor-modal").classList.remove("oculto");
         document.querySelector(".contenedor-lista-pokemones").classList.add("filtrado");
         document.querySelector("footer").classList.add("oculto");
     }
+}
+
+const logoPokemon = document.querySelector('#logo-pokemon');
+logoPokemon.onclick = ()=>{
+    searchParams.set('page', 1);
+    searchParams.set('nombre', "");
+    window.location.search=searchParams.toString();
 }
