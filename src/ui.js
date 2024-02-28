@@ -7,11 +7,22 @@ const botonSiguiente = document.querySelector('#boton-siguiente');
 const botonAnterior = document.querySelector('#boton-anterior');
 const cerrarModal = document.querySelector('#cerrar-modal');
 const pokemonBuscado = document.querySelector("#barra-busqueda");
+const botonBarraBusqueda = document.querySelector("#boton-barra-busqueda")
     
 numeroPaginaActual.onkeydown = (event)=>{
     if(event.keyCode===13){
-        searchParams.set('page', numeroPaginaActual.value);
-        window.location.search=searchParams.toString();
+        if(numeroPaginaActual.value>109){
+            searchParams.set('page', 109);
+            window.location.search=searchParams.toString();
+        }
+        else if(numeroPaginaActual.value<1){
+            searchParams.set('page', 1);
+            window.location.search=searchParams.toString();
+        }
+        else{
+            searchParams.set('page', numeroPaginaActual.value);
+            window.location.search=searchParams.toString();
+        }
     }
 }
 
@@ -20,6 +31,11 @@ pokemonBuscado.onkeydown = (event)=>{
         searchParams.set('nombre', pokemonBuscado.value);
         window.location.search=searchParams.toString();
     }
+}
+
+botonBarraBusqueda.onclick = ()=>{
+    searchParams.set('nombre', pokemonBuscado.value);
+    window.location.search=searchParams.toString();
 }
 
 export function cambiarEstadoBoton(boton, url){

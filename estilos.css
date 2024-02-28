@@ -1,6 +1,4 @@
 body,html{
-    height: 100%;
-    width: auto;
     margin: 0;
     background-color: #fd5252;
     font-family: "Sigmar One", sans-serif;
@@ -20,11 +18,12 @@ header{
     padding: .7em;
 }
 
-header>img{
+#logo-pokemon{
     width: 10em;
+    cursor: pointer;
 }
 
-header>input{
+#barra-busqueda{
     width: 12em;
     height: 2em;
     color: white;
@@ -37,8 +36,22 @@ header>input{
     right: 5em;
 }
 
-header>input::placeholder{
+#barra-busqueda::placeholder{
     color: white;
+}
+
+#boton-barra-busqueda{
+    width: 3em;
+    height: 2.5em;
+    color: white;
+    background-color:transparent;
+    border: 2px solid white;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 1.5em;
+    right: 18em;
+    cursor: pointer;
 }
 
 main{
@@ -50,7 +63,7 @@ main{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    gap: .8em;
+    gap: 1.5em;
 }
 
 .lista-pokemones-simple{
@@ -66,6 +79,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 6em;
 }
 
 .pokemon-articulo{
@@ -74,13 +88,14 @@ main{
     border-radius: 2%;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
     height: 5em;
-    width: 20em;
+    width: 17em;
     display: flex;
     align-items: center;
     text-align: center;
     flex-direction: column;
     justify-content: center;
     padding: 3em;
+    cursor: pointer;
 }
 
 .pokemon-articulo:hover{
@@ -98,6 +113,9 @@ footer{
     flex-direction: column;
     align-items: center;
     border-top: 2px solid white;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 14px;
 }
 
 #botones-paginas{
@@ -117,10 +135,11 @@ footer{
     display: flex;
     justify-content: center;
     text-align: center;
+    cursor: pointer;
 }
 
 #botones-paginas > input{
-    width: 30px;
+    width: 1.7em;
     color: white;
     background-color: transparent;
     border: none;
