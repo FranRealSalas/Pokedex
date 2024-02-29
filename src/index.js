@@ -11,6 +11,7 @@ const listaPokemones = document.querySelector('.lista-pokemones');
 const botonSiguiente = document.querySelector('#boton-siguiente');
 const botonAnterior = document.querySelector('#boton-anterior');
 const numeroPaginaActual = document.querySelector('#numero-pagina-actual');
+let totalPaginas = document.querySelector("#total-paginas");
 
 function listarPokemones(limit){
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonBuscadoActual}?limit=${limit}&offset=${(actualPage-1)*limit}`;
@@ -19,6 +20,8 @@ function listarPokemones(limit){
         fetch(url)
             .then(respuesta => respuesta.json())
             .then(data => {
+                console.log(data);
+                totalPaginas.textContent = `/ ${Math.ceil((data.count)/limit)}`;
                 listaPokemones.innerHTML = "";
                 numeroPaginaActual.value = `${(actualPage)}`;
                 cambiarEstadoBoton(botonSiguiente, data.next);
@@ -51,6 +54,7 @@ function listarPokemones(limit){
             .then(respuesta => respuesta.json())
             .then(data => {
                 console.log(data);
+                totalPaginas.textContent = "/ 1";
                 listaPokemones.innerHTML = "";
                 numeroPaginaActual.value = `${(actualPage)}`;
                 cambiarEstadoBoton(botonSiguiente, data.next);

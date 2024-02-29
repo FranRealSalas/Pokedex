@@ -7,7 +7,8 @@ const botonSiguiente = document.querySelector('#boton-siguiente');
 const botonAnterior = document.querySelector('#boton-anterior');
 const cerrarModal = document.querySelector('#cerrar-modal');
 const pokemonBuscado = document.querySelector("#barra-busqueda");
-const botonBarraBusqueda = document.querySelector("#boton-barra-busqueda")
+const botonBarraBusqueda = document.querySelector("#boton-barra-busqueda");
+
     
 numeroPaginaActual.onkeydown = (event)=>{
     if(event.keyCode===13){
@@ -28,13 +29,13 @@ numeroPaginaActual.onkeydown = (event)=>{
 
 pokemonBuscado.onkeydown = (event)=>{
     if(event.keyCode===13){
-        searchParams.set('nombre', pokemonBuscado.value);
+        searchParams.set('nombre', (pokemonBuscado.value).toLowerCase());
         window.location.search=searchParams.toString();
     }
 }
 
 botonBarraBusqueda.onclick = ()=>{
-    searchParams.set('nombre', pokemonBuscado.value);
+    searchParams.set('nombre', (pokemonBuscado.value).toLowerCase());
     window.location.search=searchParams.toString();
 }
 

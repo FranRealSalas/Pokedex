@@ -23,6 +23,12 @@ header{
     cursor: pointer;
 }
 
+#logo-pokemon:hover{
+    width: 10em;
+    cursor: pointer;
+    transform:  scale(1.1, 1.1);;
+}
+
 #barra-busqueda{
     width: 12em;
     height: 2em;
@@ -33,7 +39,7 @@ header{
     margin: 0;
     position: absolute;
     top: 1.5em;
-    right: 5em;
+    right: 9em;
 }
 
 #barra-busqueda::placeholder{
@@ -50,7 +56,21 @@ header{
     margin: 0;
     position: absolute;
     top: 1.5em;
-    right: 18em;
+    right: 5.8em;
+    cursor: pointer;
+}
+
+#boton-barra-busqueda:hover{
+    width: 3em;
+    height: 2.5em;
+    color: black;
+    background-color:white;
+    border: 2px solid black;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 1.5em;
+    right: 5.8em;
     cursor: pointer;
 }
 
@@ -131,6 +151,17 @@ footer{
     background-color: transparent;
     border: 2px solid white;
     color: white;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+#botones-paginas > button:hover{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
     border-radius: 2px;
     display: flex;
     justify-content: center;
@@ -254,8 +285,11 @@ footer{
     }
 }
 
-@media (max-width:350px){
+@media (max-width:400px){
     header>input{
+        display: none;
+    }
+    #boton-barra-busqueda{
         display: none;
     }
 }
