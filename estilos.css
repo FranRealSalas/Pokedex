@@ -21,12 +21,11 @@ header{
 #logo-pokemon{
     width: 10em;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 #logo-pokemon:hover{
-    width: 10em;
-    cursor: pointer;
-    transform:  scale(1.1, 1.1);;
+    transform:  scale(1.1, 1.1);
 }
 
 #barra-busqueda{
@@ -35,7 +34,6 @@ header{
     color: white;
     background-color:transparent;
     border: 2px solid white;
-    text-align: center;
     margin: 0;
     position: absolute;
     top: 1.5em;
@@ -74,6 +72,37 @@ header{
     cursor: pointer;
 }
 
+#lista-busqueda{
+    list-style: none;
+    background-color: white;
+    width: 10.5em;
+    max-height: 25em;
+    overflow: scroll;
+    overflow-x: hidden;
+    color: black;
+    margin: 0;
+    position: absolute;
+    top: 3.5em;
+    right: 7.5em;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+#lista-busqueda a{
+    text-decoration: none;
+    color: black;
+}
+
+#lista-busqueda li{
+    margin: 0;
+    border: 1px solid black;
+}
+
+#lista-busqueda li:hover{
+    background-color: grey;
+}
+
 main{
     height: 100%;
     width: 100%;
@@ -106,7 +135,6 @@ main{
     background-color: white;
     border: 1px solid black;
     border-radius: 2%;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
     height: 5em;
     width: 17em;
     display: flex;
@@ -116,11 +144,20 @@ main{
     justify-content: center;
     padding: 3em;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.pokemon-articulo img{
+    margin-bottom: -1em;
 }
 
 .pokemon-articulo:hover{
     box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.5);
     transform: scale(1.1, 1.1);
+}
+
+.pokemon-articulo h2{
+    margin: 0;
 }
 
 footer{
@@ -212,6 +249,11 @@ footer{
     top: .8em;
     right: 1em;
     width: 2em;
+    cursor: pointer;
+}
+
+#cerrar-modal:hover{
+    transform: scale(1.1, 1.1);
 }
 
 .oculto{
