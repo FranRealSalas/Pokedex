@@ -1,7 +1,4 @@
-import './ui/paginacion.js';
-import './ui/barra-de-busqueda.js'
 import './ui/logo-pokemon.js'
-import './ui/modal.js'
 import { cambiarEstadoBotonesPaginacion } from './ui/paginacion.js';
 import { usarModal } from './ui/modal.js';
 import { verificarPagina } from './ui/paginacion.js';
