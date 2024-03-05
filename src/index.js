@@ -1,8 +1,11 @@
-import './ui.js';
-import { cambiarEstadoBotonesPaginacion } from './ui.js';
-import { usarModal } from './ui.js';
-import { verificarPagina } from './ui.js';
-import { todosLosPokemones } from './ui.js';
+import './ui/paginacion.js';
+import './ui/barra-de-busqueda.js'
+import './ui/logo-pokemon.js'
+import './ui/modal.js'
+import { cambiarEstadoBotonesPaginacion } from './ui/paginacion.js';
+import { usarModal } from './ui/modal.js';
+import { verificarPagina } from './ui/paginacion.js';
+import { todosLosPokemones } from './ui/barra-de-busqueda.js';
 
 const queryString = window.location.search;
 const searchParams = new URLSearchParams(queryString);
@@ -14,7 +17,6 @@ const botonSiguiente = document.querySelector('#boton-siguiente');
 const botonAnterior = document.querySelector('#boton-anterior');
 const numeroPaginaActual = document.querySelector('#numero-pagina-actual');
 let totalPaginas = document.querySelector("#total-paginas");
-const $listaBusqueda = document.querySelector("#lista-busqueda");
 
 function obtenerPokemones(limit, nombrePokemon){
     const url = `https://pokeapi.co/api/v2/pokemon/${nombrePokemon}?limit=${limit}&offset=${(actualPage-1)*limit}`;
@@ -57,6 +59,7 @@ function mostrarPokemones(limit){
 }
 
 function mostrarPokemonSimple(){ 
+    listaPokemones.innerHTML = "";
     const pokemonesEncontrados = todosLosPokemones.filter(pokemon => pokemon.name.startsWith(pokemonBuscadoActual));
 
     pokemonesEncontrados
