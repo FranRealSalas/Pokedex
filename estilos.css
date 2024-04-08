@@ -244,6 +244,10 @@ footer{
     box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.7);
 }
 
+#nombre-modal{
+    margin: 0;
+}
+
 #cerrar-modal{
     position: absolute;
     top: .8em;
@@ -254,6 +258,40 @@ footer{
 
 #cerrar-modal:hover{
     transform: scale(1.1, 1.1);
+}
+
+#contenedor-carga{
+    margin: 0;
+    padding: 0;
+    height: 4em;
+    width: 4em;
+    position: absolute;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index: 10000;
+}
+
+#carga{
+    border: 8px solid black;
+    border-top-color: black;
+    border-top-style: groove;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 100%;
+    -webkit-animation: girar 1.5s linear infinite;
+    -o-animation: girar 1.5s linear infinite;
+    animation: girar 1.5s linear infinite;;
+
+}
+
+@keyframes girar{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 
 .oculto{

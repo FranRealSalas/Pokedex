@@ -1,24 +1,30 @@
 const queryString = window.location.search;
 const searchParams = new URLSearchParams(queryString);
-const cerrarModal = document.querySelector('#cerrar-modal');
+const botonCerrarModal = document.querySelector('#cerrar-modal');
 const contenedorModal = document.querySelector('#contenedor-modal');
 
-cerrarModal.onclick = ()=>{
+function cerrarModal(){
     document.querySelector("#contenedor-modal").classList.add("oculto");
     document.querySelector(".contenedor-lista-pokemones").classList.remove("filtrado");
     document.querySelector("footer").classList.remove("oculto");
+    document.querySelector("#contenedor-carga").classList.remove("oculto");
 }
 
-contenedorModal.onclick = ()=>{
-    document.querySelector("#contenedor-modal").classList.add("oculto");
-    document.querySelector(".contenedor-lista-pokemones").classList.remove("filtrado");
-    document.querySelector("footer").classList.remove("oculto");
-}
+botonCerrarModal.onclick = () => cerrarModal();
+
+contenedorModal.onclick = () => cerrarModal();
 
 function obtenerCartasModal(url){
     return  fetch(url)
                 .then(respuesta=>respuesta.json())
                 .then(data => data);
+}
+
+function ocultarCarga(){
+    console.log("entro");
+    let contenedor = document.querySelector('#carga');
+    contenedor.classList.add("oculto");
+    contenedor.computedStyleMap.opacity = "0";
 }
 
 export function usarModal(elementoClick,pokemonActual){
@@ -32,15 +38,29 @@ export function usarModal(elementoClick,pokemonActual){
 
         const cardActual = obtenerCartasModal(`https://api.pokemontcg.io/v2/cards?q=name:${pokemonActual.name}`);
 
+        
         cardActual
-            .then(pokemon =>{
-                imagenModal.src = pokemon.data[1].images.small;
-                nombreModal.textContent = pokemon.data[1].name;
-                tipoPokemonModal.textContent = `Tipo: ${pokemon.data[1].types}`;
+        .then(pokemon =>{
+                document.querySelector("#contenedor-carga").classList.add("oculto");
+                if(pokemon.count === 0){
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'No hay carta para este pokemon',
+                        icon: 'error',
+                        confirmButtonText: 'Salir'
+                      })
+
+                    cerrarModal();
+                }
+                else{
+                    imagenModal.src = pokemon.data[1].images.small;
+                    nombreModal.textContent = pokemon.data[1].name;
+                    tipoPokemonModal.textContent = `Tipo: ${pokemon.data[1].types}`;
+                }
             });
 
-        document.querySelector("#contenedor-modal").classList.remove("oculto");
-        document.querySelector(".contenedor-lista-pokemones").classList.add("filtrado");
-        document.querySelector("footer").classList.add("oculto");
+            document.querySelector("#contenedor-modal").classList.remove("oculto");
+            document.querySelector(".contenedor-lista-pokemones").classList.add("filtrado");
+            document.querySelector("footer").classList.add("oculto");
     }
 }
